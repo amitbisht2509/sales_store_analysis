@@ -21,14 +21,16 @@ A duplicate table was created to ensure the original dataset remains untouched.
 sql SELECT * INTO sales FROM sales_store;
 ```
 
-2️⃣ Checking for Duplicate Records
+**2️⃣ Checking for Duplicate Records**
+
+```sql
 SELECT transaction_id, COUNT(*) AS DuplicateCount
 FROM sales
 GROUP BY transaction_id
 HAVING COUNT(*) > 1;
+```
 
-
-Duplicate Transaction IDs found:
+**Duplicate Transaction IDs found:**
 
 TXN240646
 
@@ -38,7 +40,9 @@ TXN855235
 
 TXN981773
 
-Removing Duplicate Rows Using CTE
+**Removing Duplicate Rows Using CTE**
+
+```sql
 WITH CTE AS (
     SELECT *,
         ROW_NUMBER() OVER (PARTITION BY transaction_id ORDER BY transaction_id) AS Row_Num
@@ -46,20 +50,30 @@ WITH CTE AS (
 )
 DELETE FROM CTE
 WHERE Row_Num = 2;
+```
 
-3️⃣ Fixing Incorrect Column Names
+**3️⃣ Fixing Incorrect Column Names**
+```sql
 EXEC sp_rename 'sales.quantiy', 'quantity', 'COLUMN';
-EXEC sp_rename 'sales.prce', 'price', 'COLUMN';
+```
 
-4️⃣ Checking Data Types of All Columns
+```sql
+EXEC sp_rename 'sales.prce', 'price', 'COLUMN';
+```
+
+**4️⃣ Checking Data Types of All Columns**
+
+```sql
 SELECT COLUMN_NAME, DATA_TYPE
 FROM INFORMATION_SCHEMA.COLUMNS
 WHERE TABLE_NAME = 'sales';
+```
 
-5️⃣ Checking for NULL Values in Every Column
+**5️⃣ Checking for NULL Values in Every Column**
 
 A dynamic SQL script was used to automatically check NULL counts column-wise.
 
+```sql
 DECLARE @SQL NVARCHAR(MAX) = '';
 
 SELECT @SQL = STRING_AGG(
@@ -73,9 +87,12 @@ FROM INFORMATION_SCHEMA.COLUMNS
 WHERE TABLE_NAME = 'sales';
 
 EXEC sp_executesql @SQL;
+```
 
-6️⃣ Treating NULL Values
+**6️⃣ Treating NULL Values**
 Identifying Rows Containing NULL Values
+
+```sql
 SELECT *
 FROM sales
 WHERE transaction_id IS NULL
@@ -91,12 +108,16 @@ WHERE transaction_id IS NULL
    OR purchase_date IS NULL
    OR status IS NULL
    OR price IS NULL;
+```
 
-Removing Invalid Rows
+**Removing Invalid Rows**
+```sql
 DELETE FROM sales
 WHERE transaction_id IS NULL;
+```
 
-Correcting Individual Records
+**Correcting Individual Records**
+```sql
 UPDATE sales
 SET customer_id = 'CUST9494'
 WHERE transaction_id = 'TXN977900';
@@ -110,6 +131,7 @@ SET customer_name = 'Mahika Saini',
     customer_age = 35,
     gender = 'Male'
 WHERE transaction_id = 'TXN432798';
+```
 
 7️⃣ Standardizing Categorical Values
 Gender Standardization
