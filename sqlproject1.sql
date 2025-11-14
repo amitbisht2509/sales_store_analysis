@@ -1,5 +1,3 @@
-﻿USE Youtube_Channel;
-
 CREATE TABLE sales_store (
 transaction_id VARCHAR(15),
 customer_id VARCHAR(15),
@@ -501,3 +499,4 @@ ORDER BY product_category
 --Business Problem Solved: Gender-based product preferences.
 
 --Business Impact: Personalized ads, gender-focused campaigns.
+
