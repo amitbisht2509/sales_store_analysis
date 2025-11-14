@@ -1,4 +1,5 @@
 🛒 Sales Store – SQL Analytics Project (SQL Server)
+
 📘 Introduction
 
 This project delivers a complete SQL Server–based analysis of a retail store’s sales dataset.
