@@ -1,33 +1,33 @@
-🛒 Sales Store – SQL Analytics Project (SQL Server)
+**🛒 Sales Store – SQL Analytics Project (SQL Server)**
 
-📘 Introduction
+**📘 Introduction**
 
-This project delivers a complete SQL Server–based analysis of a retail store’s sales dataset.
+This project delivers a complete **SQL Server**–based analysis of a retail store’s sales dataset.
 The objective is to convert raw transactional data into meaningful insights centered around product performance, customer behavior, payment patterns, cancellations, and operational efficiency.
 
 All insights are generated using optimized T-SQL queries running in Microsoft SQL Server.
 
-🧩 Project Background
+**🧩 Project Background**
 
 Although the store records daily sales transactions, it lacks clarity on key business metrics:
 
-Which products sell the most
+#1 Which products sell the most.
 
-Who the highest-value customers are
+#2 Who are the highest-value customers.
 
-Which categories generate the most revenue
+#3 Which categories generate the most revenue.
 
-Which products/category have high cancellation rates
+#4 Which products/category have high cancellation rates.
 
-Payment mode usage patterns
+#5 Payment mode usage patterns.
 
-Peak purchasing times
+#6 Peak purchasing times
 
-Customer demographic insights
+#7 Customer demographic insights.
 
-This SQL-only project solves these gaps by answering core business questions using T-SQL.
 
-❗ Business Problems & SQL Solutions (T-SQL)
+
+**❗ Business Problems & SQL Solutions**
 
 Each problem below includes the SQL Server query used to solve it.
 
@@ -150,7 +150,7 @@ WHERE order_status = 'Completed'
 GROUP BY DATEPART(HOUR, order_time)
 ORDER BY total_orders DESC;
 
-💼 Key Analytical Insights (Summary)
+**💼 Key Analytical Insights (Summary)**
 
 Based on the SQL analysis:
 
@@ -170,7 +170,7 @@ Gender influences purchasing category choices
 
 Monthly trends show seasonal spikes that can be leveraged
 
-💡 Business Recommendations (How Store Can Increase Revenue)
+**💡 Business Recommendations (How Store Can Increase Revenue)**
 
 These recommendations translate SQL insights into actionable strategy:
 
