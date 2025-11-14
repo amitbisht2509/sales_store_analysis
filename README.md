@@ -115,7 +115,6 @@ WHERE transaction_id IS NULL
 DELETE FROM sales
 WHERE transaction_id IS NULL;
 ```
-
 **Correcting Individual Records**
 ```sql
 UPDATE sales
@@ -133,8 +132,9 @@ SET customer_name = 'Mahika Saini',
 WHERE transaction_id = 'TXN432798';
 ```
 
-7️⃣ Standardizing Categorical Values
-Gender Standardization
+**7️⃣ Standardizing Categorical Values**
+**Gender Standardization**
+```sql
 SELECT DISTINCT gender FROM sales;
 
 UPDATE sales SET gender = 'M' WHERE gender = 'Male';
@@ -146,6 +146,7 @@ SELECT DISTINCT payment_mode FROM sales;
 UPDATE sales
 SET payment_mode = 'Credit Card'
 WHERE payment_mode = 'CC';
+```
 
 **✔️ Summary of Cleaning Work**
 
