@@ -17,7 +17,9 @@ All cleaning operations were performed using T-SQL in SQL Server.
 
 A duplicate table was created to ensure the original dataset remains untouched.
 
-```sql SELECT * INTO sales FROM sales_store;```
+```sql
+sql SELECT * INTO sales FROM sales_store;
+```
 
 2️⃣ Checking for Duplicate Records
 SELECT transaction_id, COUNT(*) AS DuplicateCount
