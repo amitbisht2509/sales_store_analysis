@@ -32,7 +32,11 @@ Although the store records daily sales transactions, it lacks clarity on key bus
 Each problem below includes the SQL Server query used to solve it.
 
 1️⃣ Problem: No visibility of top-selling products
+
+
 ✅ Query: Top 5 Best-Selling Products (by quantity)
+
+
 SELECT TOP 5 
     p.product_name,
     SUM(o.quantity) AS total_quantity_sold
