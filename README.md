@@ -8,16 +8,16 @@ The objective is to convert raw transactional data into meaningful insights cent
 All insights are generated using optimized T-SQL queries running in Microsoft SQL Server. To see whole project click [sqlproject1.sql](./sqlproject1.sql)
 
 
-Data Cleaning & Preparation (SQL Server)
+**Data Cleaning & Preparation (SQL Server)**
 
 The raw dataset required multiple cleaning steps before analysis.
 All cleaning operations were performed using T-SQL in SQL Server.
 
-1️⃣ Creating a Working Copy of the Dataset
+**1️⃣ Creating a Working Copy of the Dataset**
 
 A duplicate table was created to ensure the original dataset remains untouched.
 
-SELECT * INTO sales FROM sales_store;
+```sql SELECT * INTO sales FROM sales_store;```
 
 2️⃣ Checking for Duplicate Records
 SELECT transaction_id, COUNT(*) AS DuplicateCount
